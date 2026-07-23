@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="sidebar">
+
+   <h2 class="brand-name">UnSturcTure<span class="brand-suffix">.Inc</span></h2>
+    <p class="brand-tagline">
+        Admin Portal
+    </p>
+
+    <ul>
+        <li><a class="active" href="admin-dashboard.html">Dashboard</a></li>
+        <li><a href="admin-reports.html">Reports</a></li>
+        <li><a href="admin-export.html">Export Data</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="admin-settings.html">Settings</a></li>
+        
+    </ul>
+<button class="logOut-Button" onclick="logout()">
+      <script>
+        function logout(){
+
+    localStorage.clear();
+
+    window.location.href =
+        "login.html";}
+      </script>
+    Logout
+   </button>
+    
+
+</div>
+
+<div class="main">
+
+    <div class="topbar">
+        <h1>Admin Dashboard</h1>
+        <p class="welcome-text">
+            Complete system monitoring
+        </p>
+    </div>
+
+    <div class="hero-banner">
+        <h2>Administrator Control Panel</h2>
+        <p>
+            Monitor products, warehouses, orders and users.
+        </p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Products</h3>
+            <p id="products">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Warehouses</h3>
+            <p id="warehouses">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Orders</h3>
+            <p id="orders">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Stock</h3>
+            <p id="stock">0</p>
+        </div>
+
+    </div>
+
+    <div class="recent-card">
+
+        <div class="card-header">
+            <h2>Recent Activities</h2>
+        </div>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Action</th>
+                    <th>From</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+
+            <tbody id="recent-body">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="js/admin-dashboard.js"></script>
+
+</body>
+</html>

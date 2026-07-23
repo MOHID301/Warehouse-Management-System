@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Inventory - UnSturcTure.Inc</title>
+<link rel="stylesheet" href="CSS/style.css" />
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2 class="brand-name">UnSturcTure<span class="brand-suffix">.Inc</span></h2>
+    <p class="brand-tagline">Warehouse Management</p>
+    <ul>
+      <li><a href="index.html">Dashboard</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="warehouses.html">Warehouses</a></li>
+      <li><a href="vendors.html">Vendors</a></li>
+      <li><a class="active" href="inventory.html" style="font-weight:bold;">Inventory</a></li>
+      <li><a href="orders.html">Orders</a></li>
+      
+    </ul>
+    <button class="logOut-Button" onclick="logout()">
+      <script>
+        function logout(){
+
+    localStorage.clear();
+
+    window.location.href =
+        "login.html";}
+      </script>
+    Logout
+   </button>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <h1>Inventory</h1>
+    </div>
+
+    <div class="section">
+      <h2>Add / Edit Stock Entry</h2>
+      <!-- Note: <select> isn't styled in your CSS (only <input> is),
+           so we add a small inline style here to match the input boxes. -->
+      <form id="inventory-form">
+        <input type="hidden" id="inventory_id">
+        <select id="warehouse_id" required style="flex:1;padding:12px;border:1px solid #ccc;border-radius:6px;">
+          <option value="">Select Warehouse</option>
+        </select>
+        <select id="product_id" required style="flex:1;padding:12px;border:1px solid #ccc;border-radius:6px;">
+          <option value="">Select Product</option>
+        </select>
+        <input type="number" id="quantity" placeholder="Quantity" min="0" step="1" required>
+        <button type="submit" id="submit-btn">Add Stock</button>
+      </form>
+    </div>
+
+    <div class="section">
+      <h2>All Inventory</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Product</th>
+            <th>Warehouse</th>
+            <th>Quantity</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="inventory-table-body"></tbody>
+      </table>
+    </div>
+
+<div class="footer">Warehouse Management System &mdash; Developed by Mohid & CO.</div>
+      <div class="footer2">© 2026 UnStructure.Inc — All Rights Reserved</div>
+  </div>
+
+  <script src="Js/inventory.js"></script>
+</body>
+</html>

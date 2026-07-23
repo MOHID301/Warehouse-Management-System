@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard - UnSturcTure.Inc</title>
+<link rel="stylesheet" href="CSS/style.css" />
+</head>
+<body>
+
+  <div class="sidebar">
+    
+    <h2 class="brand-name">UnSturcTure<span class="brand-suffix">.Inc</span></h2>
+    <p class="brand-tagline">Warehouse Management</p>
+    <ul>
+      <li><a class="active" href="index.html" style="font-weight:bold;">Dashboard</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="inventory.html">Inventory</a></li>
+      <li><a href="orders.html">Orders</a></li>
+         <li><a href="vendors.html">Vendors</a></li>
+      <li><a href="warehouses.html">Warehouses</a></li>
+      
+    </ul>
+    <button class="logOut-Button" onclick="logout()">
+      <script>
+        function logout(){
+
+    localStorage.clear();
+
+    window.location.href =
+        "login.html";}
+      </script>
+    Logout
+   </button>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <h1>Dashboard</h1>
+      <p class="welcome-text">Welcome back — here's your warehouse overview.</p>
+    </div>
+
+     <div class="hero-banner">
+        <h2>User Control Panel</h2>
+        <p>
+           Manage products, warehouses, orders and vendors.
+        </p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Total Products</h3>
+        <p id="count-products">0</p>
+      </div>
+      <div class="card">
+        <h3>Total Warehouses</h3>
+        <p id="count-warehouses">0</p>
+      </div>
+      <div class="card">
+        <h3>Total Vendors</h3>
+        <p id="count-vendors">0</p>
+      </div>
+      <div class="card">
+        <h3>Total Orders</h3>
+        <p id="count-orders">0</p>
+      </div>
+    </div>
+    <div class="dashboard-card recent-card">
+    <h1>Recent Activity</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Action</th>
+                <th>Table</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+
+        <tbody id="recent-activity-body">
+        </tbody>
+    </table>
+</div>
+
+    <div class="footer">Warehouse Management System &mdash; Developed by Mohid & CO.</div>
+      <div class="footer2">© 2026 UnStructure.Inc — All Rights Reserved</div>
+  </div>
+
+  <script src="Js/dashboard.js"></script>
+</body>
+</html>

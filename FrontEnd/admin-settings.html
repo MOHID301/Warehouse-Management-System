@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Settings</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <div>
+
+        <h2 class="brand-name">
+            UnStrucTure<span class="brand-suffix">.Inc</span>
+        </h2>
+
+        <p class="brand-tagline">
+            Admin Portal
+        </p>
+
+        <ul>
+            <li><a href="admin-dashboard.html">Dashboard</a></li>
+            <li><a href="admin-reports.html">Reports</a></li>
+            <li><a href="admin-export.html">Export Data</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li><a class="active" href="admin-settings.html">Settings</a></li>
+        </ul>
+
+    </div>
+
+   <button class="logOut-Button" onclick="logout()">
+      <script>
+        function logout(){
+
+    localStorage.clear();
+
+    window.location.href =
+        "login.html";}
+      </script>
+    Logout
+   </button>
+
+</div>
+
+<div class="main">
+
+    <div class="topbar">
+
+        <h1>Settings</h1>
+
+        <p class="welcome-text">
+            Manage your account information and security.
+        </p>
+
+    </div>
+
+    <!-- Account Information -->
+
+    <div class="section">
+
+        <h2>Account Information</h2>
+
+        <table>
+
+            <tr>
+                <td><strong>Username</strong></td>
+                <td id="username">admin</td>
+            </tr>
+
+            <tr>
+                <td><strong>Role</strong></td>
+                <td>Administrator</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <!-- Change Password -->
+
+    <div class="section">
+
+        <h2>Change Password</h2>
+
+        <form id="passwordForm">
+
+    <input
+        type="password"
+        id="currentPassword"
+        placeholder="Current Password"
+        required>
+
+    <input
+        type="password"
+        id="newPassword"
+        placeholder="New Password"
+        required>
+
+    <input
+        type="password"
+        id="confirmPassword"
+        placeholder="Confirm New Password"
+        required>
+
+    <button type="submit">
+        Change Password
+    </button>
+
+</form>
+
+    </div>
+
+</div>
+
+<script src="js/admin-settings.js"></script>
+
+</body>
+
+</html>

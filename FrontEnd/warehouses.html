@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Warehouses - UnSturcTure.Inc</title>
+<link rel="stylesheet" href="CSS/style.css" />
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2 class="brand-name">UnSturcTure<span class="brand-suffix">.Inc</span></h2>
+    <p class="brand-tagline">Warehouse Management</p>
+    <ul>
+      <li><a href="index.html">Dashboard</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a class="active" href="warehouses.html" style="font-weight:bold;">Warehouses</a></li>
+      <li><a href="vendors.html">Vendors</a></li>
+      <li><a href="inventory.html">Inventory</a></li>
+      <li><a href="orders.html">Orders</a></li>
+
+    </ul>
+    <button class="logOut-Button" onclick="logout()">
+      <script>
+        function logout(){
+
+    localStorage.clear();
+
+    window.location.href =
+        "login.html";}
+      </script>
+    Logout
+   </button>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <h1>Warehouses</h1>
+    </div>
+
+    <div class="section">
+      <h2>Add / Edit Warehouse</h2>
+      <form id="warehouse-form">
+        <input type="hidden" id="warehouse_id">
+        <input type="text" id="warehouse_name" placeholder="Warehouse Name" required>
+        <input type="text" id="location" placeholder="Location">
+        <input type="number" id="capacity" placeholder="Capacity" min="0" step="1">
+        <button type="submit" id="submit-btn">Add Warehouse</button>
+      </form>
+    </div>
+
+    <div class="section">
+      <h2>All Warehouses</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Capacity</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="warehouse-table-body"></tbody>
+      </table>
+    </div>
+<div class="footer">Warehouse Management System &mdash; Developed by Mohid & CO.</div>
+      <div class="footer2">© 2026 UnStructure.Inc — All Rights Reserved</div>
+  </div>
+
+  <script src="Js/warehouses.js"></script>
+</body>
+</html>

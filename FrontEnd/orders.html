@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Orders - UnSturcTure.Inc</title>
+<link rel="stylesheet" href="CSS/style.css" />
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2 class="brand-name">UnSturcTure<span class="brand-suffix">.Inc</span></h2>
+    <p class="brand-tagline">Warehouse Management</p>
+    <ul>
+      <li><a href="index.html">Dashboard</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="warehouses.html">Warehouses</a></li>
+      <li><a href="vendors.html">Vendors</a></li>
+      <li><a href="inventory.html">Inventory</a></li>
+      <li><a class="active" href="orders.html" style="font-weight:bold;">Orders</a></li>
+      
+    </ul>
+    <button class="logOut-Button" onclick="logout()">
+      <script>
+        function logout(){
+
+    localStorage.clear();
+
+    window.location.href =
+        "login.html";}
+      </script>
+    Logout
+   </button>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <h1>Orders</h1>
+    </div>
+
+    <!-- ORDERS -->
+    <div class="section">
+      <h2>Add / Edit Order</h2>
+      <form id="order-form">
+        <input type="hidden" id="order_id">
+        <select id="vendor_id" required style="flex:1;padding:12px;border:1px solid #ccc;border-radius:6px;">
+          <option value="">Select Vendor</option>
+        </select>
+        <input type="date" id="order_date" required>
+        <select id="status" required style="flex:1;padding:12px;border:1px solid #ccc;border-radius:6px;">
+          <option value="Pending">Pending</option>
+          <option value="Shipped">Shipped</option>
+          <option value="Delivered">Delivered</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+        <button type="submit" id="order-submit-btn">Add Order</button>
+      </form>
+    </div>
+
+    <div class="section">
+      <h2>All Orders</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Vendor</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="order-table-body"></tbody>
+      </table>
+    </div>
+
+    <!-- ORDER ITEMS (Order_Details) -->
+    <div class="section">
+      <h2>Add / Edit Order Item</h2>
+      <form id="item-form">
+        <input type="hidden" id="detail_id">
+        <select id="item_order_id" required style="flex:1;padding:12px;border:1px solid #ccc;border-radius:6px;">
+          <option value="">Select Order</option>
+        </select>
+        <select id="item_product_id" required style="flex:1;padding:12px;border:1px solid #ccc;border-radius:6px;">
+          <option value="">Select Product</option>
+        </select>
+        <input type="number" id="item_quantity" placeholder="Quantity" min="1" step="1" required>
+        <button type="submit" id="item-submit-btn">Add Item</button>
+      </form>
+    </div>
+
+    <div class="section">
+      <h2>All Order Items</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Order</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="item-table-body"></tbody>
+      </table>
+    </div>
+
+    <div class="footer">Warehouse Management System &mdash; Developed by Mohid & CO.</div>
+      <div class="footer2">© 2026 UnStructure.Inc — All Rights Reserved</div>
+  </div>
+
+  <script src="Js/orders.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Export Data</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="sidebar">
+
+<h2 class="brand-name">
+    UnStrucTure<span class="brand-suffix">.Inc</span>
+</h2>
+
+<p class="brand-tagline">
+Admin Portal
+</p>
+
+    <ul>
+        <li><a  href="admin-dashboard.html">Dashboard</a></li>
+        <li><a href="admin-reports.html">Reports</a></li>
+        <li><a class="active" href="admin-export.html">Export Data</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="admin-settings.html">Settings</a></li>
+       
+    </ul>
+<button class="logOut-Button" onclick="logout()">
+      <script>
+        function logout(){
+
+    localStorage.clear();
+
+    window.location.href =
+        "login.html";}
+      </script>
+    Logout
+   </button>
+    
+</div>
+
+<div class="main">
+
+<div class="topbar">
+<h1>Export Database</h1>
+</div>
+<div class="section">
+
+    <h2>Export Data</h2>
+
+    <button onclick="exportProducts()">
+        Export Products
+    </button>
+
+    <button onclick="exportOrders()">
+        Export Orders
+    </button>
+
+    <button onclick="exportVendors()">
+        Export Vendors
+    </button>
+
+    <button onclick="exportWarehouses()">
+        Export Warehouses
+    </button>
+
+    <button onclick="exportInventory()">
+        Export Inventory
+    </button>
+
+</div>
+
+<script src="js/admin-export.js"></script>
+
+</body>
+</html>

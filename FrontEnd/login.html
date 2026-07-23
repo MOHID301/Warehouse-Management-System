@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login | UnStructure.Inc WMS</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;900&family=Montserrat:wght@400;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --primary:#0a0a0a;
+    --card:#111111;
+    --accent:#d4a54a;
+    --accent-hover:#b8862f;
+    --text:#cfcfcf;
+    --white:#ffffff;
+    --line:rgba(255,255,255,0.12);
+    --radius:2px;
+    --font-heading:'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    --font-body:'Nunito', 'Helvetica Neue', Arial, sans-serif;
+    --font-brand:'Bebas Neue', 'Montserrat', sans-serif;
+
+    /* Swap for your own moody, desaturated photo — a warehouse aisle,
+       a loading dock at dusk, shelving from a low angle, etc. */
+    --bg-photo:url('https://picsum.photos/1920/1080?grayscale');
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+
+    background-color:var(--primary);
+    background-image:
+        linear-gradient(135deg, rgba(4,4,4,0.55), rgba(4,4,4,0.75)),
+        var(--bg-photo);
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    color:var(--text);
+    font-family:var(--font-body);
+}
+
+h1,h2,h3{
+    font-family:var(--font-heading);
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    font-weight:700;
+}
+
+.login-container{
+    width:900px;
+    max-width:100%;
+    display:flex;
+    min-height:560px;
+
+    border-radius:6px;
+    border:1px solid var(--line);
+    overflow:hidden;
+
+    box-shadow:0 25px 60px rgba(0,0,0,0.6);
+
+    animation:rise .6s ease both;
+}
+
+@keyframes rise{
+    from{ opacity:0; transform:translateY(18px); }
+    to{ opacity:1; transform:translateY(0); }
+}
+
+/* ======================
+   BRAND SIDE
+====================== */
+
+.brand-section{
+    position:relative;
+    flex:1;
+    overflow:hidden;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    padding:50px;
+
+    background:linear-gradient(160deg, rgba(0,0,0,0.75), rgba(0,0,0,0.65));
+    color:var(--white);
+}
+
+.brand-section::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    box-shadow:inset 0 0 90px rgba(0,0,0,0.55);
+    pointer-events:none;
+}
+
+.brand-mark{
+    font-family:var(--font-brand);
+    font-weight:400;
+    font-size:44px;
+    line-height:1;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    text-shadow:0 0 24px rgba(212,165,74,0.3);
+    margin-bottom:8px;
+}
+
+.brand-suffix-badge{
+    display:inline-block;
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:10px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--accent);
+
+    padding:3px 9px;
+    border:1px solid var(--accent);
+    border-radius:20px;
+
+    margin-bottom:22px;
+}
+
+.brand-section .divider{
+    width:44px;
+    height:2px;
+    background:var(--accent);
+    margin-bottom:22px;
+}
+
+.brand-section p{
+    color:#ccc;
+    font-size:13px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    max-width:260px;
+}
+
+.brand-section .sub-line{
+    margin-top:28px;
+    color:#777;
+    font-size:11px;
+    letter-spacing:1.5px;
+    text-transform:none;
+    font-family:var(--font-body);
+}
+
+/* ======================
+   LOGIN SIDE
+====================== */
+
+.login-card{
+    flex:1;
+    background:rgba(10,10,10,0.5);
+    backdrop-filter:blur(20px) saturate(140%);
+    -webkit-backdrop-filter:blur(20px) saturate(140%);
+    padding:55px 50px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.login-card h2{
+    font-size:22px;
+    letter-spacing:2px;
+    color:var(--white);
+    margin-bottom:8px;
+}
+
+.login-card .login-sub{
+    color:#888;
+    font-size:13px;
+    letter-spacing:.5px;
+    margin-bottom:32px;
+}
+
+.input-group{
+    margin-bottom:20px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:8px;
+    font-family:var(--font-heading);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:#999;
+}
+
+.input-group input,
+.input-group select{
+    width:100%;
+    padding:13px 14px;
+
+    background:rgba(0,0,0,0.45);
+    color:var(--text);
+    font-family:var(--font-body);
+    font-size:15px;
+
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+
+    outline:none;
+
+    transition:.3s ease;
+}
+
+.input-group input::placeholder{
+    color:#555;
+}
+
+.input-group input:focus,
+.input-group select:focus{
+    border-color:var(--accent);
+    box-shadow:0 0 0 1px var(--accent);
+}
+
+button{
+    position:relative;
+    overflow:hidden;
+    isolation:isolate;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+
+    width:100%;
+    margin-top:8px;
+    padding:14px;
+
+    border:1px solid var(--accent);
+    border-radius:40px;
+
+    background:transparent;
+
+    color:var(--accent);
+    font-family:var(--font-heading);
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+    cursor:pointer;
+
+    transition:color .35s ease, box-shadow .35s ease, transform .2s ease;
+}
+
+button::before{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    inset:0;
+    left:-110%;
+    background:linear-gradient(100deg, var(--accent), #f0cd82);
+    transition:left .4s ease;
+}
+
+button::after{
+    content:"\2192";
+    opacity:0;
+    transform:translateX(-6px);
+    transition:opacity .3s ease, transform .3s ease;
+}
+
+button:hover{
+    color:#000;
+    box-shadow:0 10px 25px rgba(212,165,74,0.3);
+}
+
+button:hover::before{
+    left:0;
+}
+
+button:hover::after{
+    opacity:1;
+    transform:translateX(0);
+}
+
+button:active{
+    transform:scale(.98);
+}
+
+#error-message{
+    color:#ff6b6b;
+    text-align:center;
+    margin-top:18px;
+    font-family:var(--font-heading);
+    font-size:12px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    min-height:16px;
+}
+
+@media(max-width:768px){
+
+    .login-container{
+        flex-direction:column;
+        min-height:0;
+    }
+
+    .brand-section{
+        padding:40px 30px;
+    }
+
+    .brand-mark{
+        font-size:34px;
+    }
+
+    .login-card{
+        padding:40px 30px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <div class="brand-section">
+        <div class="brand-mark">UnStructure</div>
+        <span class="brand-suffix-badge">Inc</span>
+        <div class="divider"></div>
+        <p>Warehouse Management System</p>
+        <div class="sub-line">Secure access for authorized personnel</div>
+    </div>
+
+    <div class="login-card">
+
+        <h2>Sign In</h2>
+        <p class="login-sub">Enter your credentials to access the portal</p>
+
+        <form id="loginForm">
+
+            <div class="input-group">
+                <label>Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Enter Username"
+                    required
+                >
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter Password"
+                    required
+                >
+            </div>
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+        <p id="error-message"></p>
+
+    </div>
+
+</div>
+
+<script src="js/login.js"></script>
+
+</body>
+</html>

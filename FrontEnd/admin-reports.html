@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Reports</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .charts-container{
+    display:flex;
+    gap:20px;
+    margin-top:25px;
+}
+
+.chart-box{
+    flex:1;
+}
+
+.chart-box canvas{
+    width:100% !important;
+    height:350px !important;
+}
+@media(max-width:768px){
+
+    .charts-container{
+        flex-direction:column;
+    }
+
+}
+    </style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <h2 class="brand-name">
+        UnStrucTure<span class="brand-suffix">.Inc</span>
+    </h2>
+
+    <p class="brand-tagline">
+        Admin Panel
+    </p>
+
+      <ul>
+        <li><a  href="admin-dashboard.html">Dashboard</a></li>
+        <li><a class="active" href="admin-reports.html">Reports</a></li>
+        <li><a  href="admin-export.html">Export Data</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="admin-settings.html">Settings</a></li>
+        
+    </ul>
+<button class="logOut-Button" onclick="logout()">
+      <script>
+        function logout(){
+
+    localStorage.clear();
+
+    window.location.href =
+        "login.html";}
+      </script>
+    Logout
+   </button>
+
+</div>
+
+<div class="main">
+
+    <div class="topbar">
+        <h1>Reports & Analytics</h1>
+    </div>
+
+    <!-- Statistics Cards -->
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Daily Orders</h3>
+            <p id="dailyOrders">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Weekly Orders</h3>
+            <p id="weeklyOrders">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Monthly Orders</h3>
+            <p id="monthlyOrders">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Yearly Orders</h3>
+            <p id="yearlyOrders">0</p>
+        </div>
+
+    </div>
+
+    <div class="charts-container">
+
+    <div class="section chart-box">
+        <h2>Monthly Orders Chart</h2>
+        <canvas id="monthlyChart"></canvas>
+    </div>
+
+    <div class="section chart-box">
+        <h2>Products by Category</h2>
+        <canvas id="productsChart"></canvas>
+    </div>
+
+</div>
+
+</div>
+
+
+
+<script src="js/admin-reports.js"></script>
+
+</body>
+</html>
