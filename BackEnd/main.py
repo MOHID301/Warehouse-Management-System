@@ -27,10 +27,11 @@ app.add_middleware(
 
 def get_connection():
     return mysql.connector.connect(
-        host="localhost",
+        host="kodama.proxy.rlwy.net",
+        port=50699,
         user="root",
-        password="",
-        database="db_project"
+        password="eqdLwtWPHmhZakkqYiCcdkZySjvPkGNo",
+        database="railway"
     )
 
 def add_log(table_name, action_type, record_id, description):
