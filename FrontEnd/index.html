@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Dashboard - UnSturcTure.Inc</title>
 <link rel="stylesheet" href="CSS/style.css" />
+ <script>
+        if (localStorage.getItem("loggedIn") !== "true") {
+            window.location.replace("login.html");
+        }
+    </script>
 </head>
 <body>
 
