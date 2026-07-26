@@ -1,5 +1,5 @@
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://warehouse-management-system-production-eb5b.up.railway.app";
 
 let orders = [];
 let vendors = [];
