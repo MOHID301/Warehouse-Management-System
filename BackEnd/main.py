@@ -25,6 +25,7 @@ app.add_middleware(
 # DATABASE CONNECTION
 # =====================================================
 
+
 def get_connection():
     return mysql.connector.connect(
         host="kodama.proxy.rlwy.net",
