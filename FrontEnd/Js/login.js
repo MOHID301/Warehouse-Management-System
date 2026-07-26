@@ -36,6 +36,7 @@ async function login(e){
         await response.json();
 
         if(result.success){
+            localStorage.setItem("loggedIn", "true");
 
             localStorage.setItem(
                 "role",
