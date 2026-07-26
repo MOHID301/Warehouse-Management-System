@@ -1059,13 +1059,13 @@ def monthly_orders():
     cursor = conn.cursor(dictionary=True)
 
     cursor.execute("""
-        SELECT
-            MONTHNAME(order_date) month,
-            COUNT(*) total
-        FROM purchase_order
-        GROUP BY MONTH(order_date)
-        ORDER BY MONTH(order_date)
-    """)
+    SELECT
+        MIN(MONTHNAME(order_date)) AS month,
+        COUNT(*) AS total
+    FROM purchase_order
+    GROUP BY MONTH(order_date)
+    ORDER BY MONTH(order_date)
+""")
 
     data = cursor.fetchall()
 
