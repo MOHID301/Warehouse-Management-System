@@ -2,7 +2,7 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 
+-- Host: https://warehouse-management-system-production-eb5b.up.railway.app
 -- Generation Time: Jul 25, 2026 at 06:56 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
