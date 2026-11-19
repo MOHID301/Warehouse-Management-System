@@ -1,5 +1,6 @@
-import pandas as pd
 
+import os
+import pandas as pd
 from fastapi.responses import FileResponse
 
 from fastapi import FastAPI
@@ -24,16 +25,22 @@ app.add_middleware(
 # =====================================================
 # DATABASE CONNECTION
 # =====================================================
-
+ 
 
 def get_connection():
-    return mysql.connector.connect(
-        host="kodama.proxy.rlwy.net",
-        port=50699,
-        user="root",
-        password="eqdLwtWPHmhZakkqYiCcdkZySjvPkGNo",
-        database="railway"
-    )
+    cfg = {
+        "host": os.getenv("DB_HOST", "localhost"),
+        "port": int(os.getenv("DB_PORT", "3306")),
+        "user": os.getenv("DB_USER", "root"),
+        "password": os.getenv("DB_PASSWORD", ""),
+        "database": os.getenv("DB_NAME", "db_project"),
+    }
+    if os.getenv("DB_SSL", "0") == "1":
+        cfg["ssl_disabled"] = False
+        ca = os.getenv("DB_SSL_CA")
+        if ca:
+            cfg["ssl_ca"] = ca
+    return mysql.connector.connect(**cfg)
 
 def add_log(table_name, action_type, record_id, description):
 
